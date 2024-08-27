@@ -1,0 +1,23 @@
+/* Write your CSS here */
+.todo {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title {
+    color: #000;
+    font-family: "Roboto";
+    font-size: 14px;
+}
+.btn {
+    background-color: #fff;
+    color: #ff0b37;
+    font-family: "Roboto";
+    font-size: 12px;
+    padding: 4px 8px 4px 8px;
+    margin-left: 16px;
+    border: 1px solid #ff0b37;
+    outline: none;
+    cursor: pointer;
+}
