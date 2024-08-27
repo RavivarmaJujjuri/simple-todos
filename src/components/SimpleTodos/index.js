@@ -1,5 +1,5 @@
-import {Component} from 'react'
 import {v4 as uuidv4} from 'uuid'
+import {Component} from 'react'
 import TodoItem from '../TodoItem'
 import './index.css'
 
@@ -43,6 +43,7 @@ class SimpleTodos extends Component {
   state = {
     todoList: initialTodosList,
     inputData: '',
+    todoCount: 1,
   }
 
   deleteTodo = id => {
@@ -56,11 +57,29 @@ class SimpleTodos extends Component {
   }
 
   onAddNewTask = () => {
-    const {inputData} = this.state
+    const {inputData, todoCount} = this.state
+    const newTodos = Array.from({length: todoCount}, (_, i) => ({
+      id: Date.now() + i,
+      title: inputData,
+      completed: false,
+    }))
+    this.setState(prev => ({
+      todoList: [...prev.todoList, ...newTodos],
+      inputData: '',
+      todoCount: 1,
+    }))
+  }
+
+  onSaveExistingTask = (id, taskTitle) => {
+    const {todoList} = this.state
+    const newUpdatedList = todoList.map(each =>
+      each.id === id ? {...each, title: taskTitle} : each,
+    )
+    this.setState({todoList: newUpdatedList})
   }
 
   render() {
-    const {todoList, inputData, isEdit} = this.state
+    const {todoList, inputData} = this.state
 
     return (
       <div className="bg-container">
@@ -74,7 +93,11 @@ class SimpleTodos extends Component {
               value={inputData}
               onChange={this.onChangeInput}
             />
-            <button onClick={this.onAddNewTask} className="add-task-btn">
+            <button
+              type="button"
+              onClick={this.onAddNewTask}
+              className="add-task-btn"
+            >
               Add
             </button>
           </div>
@@ -84,6 +107,7 @@ class SimpleTodos extends Component {
                 key={eachTodo.id}
                 todoDetails={eachTodo}
                 deleteTodo={this.deleteTodo}
+                onEditedTask={this.onSaveExistingTask}
               />
             ))}
           </ul>

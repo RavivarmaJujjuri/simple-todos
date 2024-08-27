@@ -1,23 +1,63 @@
 /* Write your CSS here */
 .todo {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .title {
-    color: #000;
-    font-family: "Roboto";
-    font-size: 14px;
+  color: #000;
+  font-family: 'Roboto';
+  font-size: 14px;
 }
 .btn {
-    background-color: #fff;
-    color: #ff0b37;
-    font-family: "Roboto";
-    font-size: 12px;
-    padding: 4px 8px 4px 8px;
-    margin-left: 16px;
-    border: 1px solid #ff0b37;
-    outline: none;
-    cursor: pointer;
+  background-color: #fff;
+  color: #ff0b37;
+  font-family: 'Roboto';
+  font-size: 12px;
+  padding: 4px 8px 4px 8px;
+  margin-left: 16px;
+  border: 1px solid #ff0b37;
+  outline: none;
+  cursor: pointer;
+}
+.edit-input {
+  height: 35px;
+  width: 80%;
+  font-weight: 520px;
+  font-size: 18px;
+  border-style: none;
+  outline: none;
+}
+.save-edit-btn {
+  background-color: rgb(20, 232, 20);
+  color: white;
+  font-size: 16px;
+  font-weight: 520;
+  padding: 8px 15px 8px 15px;
+  border-radius: 8px;
+  outline: none;
+  border-style: none;
+  margin-right: 15px;
+  height: 35px;
+}
+.text-btn-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.input-label-div {
+  display: flex;
+  align-items: center;
+  margin-left: 6px;
+}
+.checked-title {
+  text-decoration: line-through;
+}
+.check-box {
+  height: 15px;
+  width: 15px;
+  margin-right: 10px;
+  margin-top: 8px;
 }
